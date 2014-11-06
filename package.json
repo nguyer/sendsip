@@ -1,0 +1,30 @@
+{
+  "name": "sendsip",
+  "version": "0.0.1",
+  "description": "A super simple tool to send a SIP invite",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "sendsip": "app.js"
+  },
+  "author": "Nicko Guyer",
+  "license": "MIT",
+  "dependencies": {
+    "sip": "0.0.2-40"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nguyer/sendsip.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nguyer/sendsip/issues"
+  },
+  "homepage": "https://github.com/nguyer/sendsip",
+  "keywords": [
+    "sip",
+    "node"
+  ]
+}
