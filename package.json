@@ -1,6 +1,6 @@
 {
   "name": "sendsip",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "A super simple tool to send a SIP invite",
   "main": "app.js",
   "scripts": {
