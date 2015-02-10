@@ -22,10 +22,13 @@ Super simple, right?
 
 Oh, you want a little customization? Sure we can do that...
 
-| Flag         | Description                                | Type    | Default     |
-|--------------|--------------------------------------------|---------|-------------|
-| --to         | The 'to' telephone number                  | String  | 19194181234 |
-| --from       | The 'from' telephone number                | String  | 19194181235 |
-| --ip         | The destination IP to send the Invite to   | String  | 127.0.0.1   |
-| --port       | The destination port to send the Invite to | Integer | 5060        |
-| --sourcePort | The port that you want to listen on        | Integer | 6161        |
+| Flag         | Description                                        | Type    | Default     |
+|--------------|----------------------------------------------------|---------|-------------|
+| --to         | The 'to' telephone number                          | String  | 19194181234 |
+| --from       | The 'from' telephone number                        | String  | 19194181235 |
+| --ip         | The destination IP to send the Invite to           | String  | 127.0.0.1   |
+| --sourceIp   | The IP address to put in the Contact/Via header    | String  | 127.0.0.1   |
+| --port       | The destination port to send the Invite to         | Integer | 5060        |
+| --sourcePort | The port that you want to listen on                | Integer | 6161        |
+| --tcp        | Use TCP instead of UDP                             | (none)  |             |
+| --no-rport   | Do not add the rport flag to the Invite            | (none)  |             |
