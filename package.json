@@ -12,7 +12,7 @@
   "author": "Nicko Guyer",
   "license": "MIT",
   "dependencies": {
-    "sip": "0.0.2-40"
+    "sip": "0.0.2-29"
   },
   "devDependencies": {},
   "repository": {

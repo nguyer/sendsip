@@ -2,7 +2,6 @@
 
 'use strict';
 
-var os = require('os');
 var sip = require('sip');
 
 var to = '19194181234';
@@ -15,6 +14,7 @@ var tcp = false;
 var rport = true;
 var callId = Math.floor(Math.random() * 1e6).toString();
 var seq = Math.floor(Math.random() * 1e5).toString();
+var method = 'INVITE';
 
 for (var i = 2; i < process.argv.length; i++) {
 	if (process.argv[i] === '--to') {
@@ -47,6 +47,22 @@ for (var i = 2; i < process.argv.length; i++) {
 	else if (process.argv[i] === '--no-rport') {
 		rport = false;
 	}
+	else if (process.argv[i].toUpperCase() === 'INVITE' ||
+		process.argv[i].toUpperCase() === 'ACK' ||
+		process.argv[i].toUpperCase() === 'BYE' ||
+		process.argv[i].toUpperCase() === 'CANCEL' ||
+		process.argv[i].toUpperCase() === 'OPTIONS' ||
+		process.argv[i].toUpperCase() === 'REGISTER' ||
+		process.argv[i].toUpperCase() === 'PRACK' ||
+		process.argv[i].toUpperCase() === 'SUBSCRIBE' ||
+		process.argv[i].toUpperCase() === 'NOTIFY' ||
+		process.argv[i].toUpperCase() === 'PUBLISH' ||
+		process.argv[i].toUpperCase() === 'INFO' ||
+		process.argv[i].toUpperCase() === 'REFER' ||
+		process.argv[i].toUpperCase() === 'MESSAGE' ||
+		process.argv[i].toUpperCase() === 'UPDATE') {
+		method = process.argv[i].toUpperCase();
+	}
 }
 
 var sipClient = sip.create({
@@ -58,13 +74,13 @@ var sipClient = sip.create({
 });
 
 var invite = {
-	method : 'INVITE',
+	method : method,
 	uri : 'sip:+' + to + '@' + ip + ':' + port,
 	headers: {
 		to : { uri : 'sip:+' + to + '@' + ip + ':' + port },
 		from : { uri: 'sip:+' + from + '@' + sourceIp + ':' + sourcePort, params : { tag : callId } },
 		'call-id': callId,
-		cseq: { method : 'INVITE', seq: seq },
+		cseq: { method : method, seq: seq },
 		'content-type': 'application/sdp',
 		contact : [ { uri: 'sip:+' + from + '@' + sourceIp + ':' + sourcePort } ],
 		'Max-Forwards': 70
